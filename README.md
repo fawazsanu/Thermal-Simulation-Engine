@@ -12,7 +12,7 @@ The simulation solves the **2D heat equation** (parabolic PDE) numerically on a 
 ∂u/∂t = α · (∂²u/∂x² + ∂²u/∂y²)
 ```
 
-Where `u(x, y, t)` is temperature and `α` is the thermal diffusivity of the material. The solver uses a vectorised **explicit finite difference scheme** (FTCS — Forward Time, Centred Space), with a time step chosen to satisfy the Von Neumann stability criterion.
+Where `u(x, y, t)` is temperature and `α` is the thermal diffusivity of the material. The solver uses a vectorised **explicit finite difference scheme** (FTCS: Forward Time, Centred Space), with a time step chosen to satisfy the Von Neumann stability criterion.
 
 Results are rendered as a 2×2 grid of thermal contour maps showing the temperature field at four points in time.
 
@@ -107,8 +107,8 @@ At **iteration 0**, the grid shows sharp discontinuities at the boundaries with 
 
 ## Limitations & Potential Extensions
 
-- **Explicit scheme only** — larger grids or higher diffusivity values require proportionally smaller time steps. An implicit (Crank-Nicolson) solver would remove this constraint
-- **Homogeneous material** — `α` is uniform across the grid; real plates may have spatially varying properties
-- **Fixed boundaries** — Neumann (flux) boundary conditions (e.g., insulated edges with zero gradient) are not implemented
-- **No convergence check** — the simulation runs for a fixed number of steps rather than stopping when steady state is reached
-- **2D only** — extending to 3D would require a `(N, N, N)` array and adjusted Laplacian stencil
+- **Explicit scheme only**: larger grids or higher diffusivity values require proportionally smaller time steps. An implicit (Crank-Nicolson) solver would remove this constraint
+- **Homogeneous material**: `α` is uniform across the grid; real plates may have spatially varying properties
+- **Fixed boundaries**: Neumann (flux) boundary conditions (e.g., insulated edges with zero gradient) are not implemented
+- **No convergence check**: the simulation runs for a fixed number of steps rather than stopping when steady state is reached
+- **2D only**: extending to 3D would require a `(N, N, N)` array and adjusted Laplacian stencil
